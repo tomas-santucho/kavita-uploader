@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavita Uploader</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <form id="login-form" class="login-form">
+            <h1>Sign in</h1>
+            <input id="username" type="text" placeholder="Username" autocomplete="username" required>
+            <input id="password" type="password" placeholder="Password" autocomplete="current-password" required>
+            <button class="upload-btn" type="submit">Sign in</button>
+            <div id="login-status" class="status error"></div>
+        </form>
+        <main id="uploader" class="hidden">
+        <header>
+            <h1>Kavita Uploader</h1>
+            <p>Drag and drop your books here to upload them to Kavita</p>
+        </header>
+
+        <div class="library-selection">
+            <label for="library-select">Select Library:</label>
+            <div style="display: flex; gap: 10px;">
+                <select id="library-select" style="flex-grow: 1;">
+                    <option value="">Root (Main Library)</option>
+                </select>
+                <button id="refresh-libs" class="refresh-button" type="button" aria-label="Refresh libraries">&#8635;</button>
+            </div>
+            <div id="new-library-container" class="new-library-container hidden">
+                <input type="text" id="new-library-input" placeholder="Enter new library name...">
+            </div>
+        </div>
+
+        <div id="drop-zone" class="drop-zone">
+            <div class="drop-zone-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload-cloud">
+                    <polyline points="16 16 12 12 8 16"></polyline>
+                    <line x1="12" y1="12" x2="12" y2="21"></line>
+                    <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+                    <polyline points="16 16 12 12 8 16"></polyline>
+                </svg>
+                <p>Drag & Drop files or click to browse</p>
+                <input type="file" id="file-input" multiple hidden>
+            </div>
+        </div>
+
+        <div id="file-list" class="file-list"></div>
+
+        <button id="upload-btn" class="upload-btn" disabled>Upload Files</button>
+
+        <div id="status" class="status"></div>
+        </main>
+    </div>
+    <script src="script.js?v=2"></script>
+</body>
+</html>

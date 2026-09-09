@@ -1,0 +1,19 @@
+services:
+  kavita-uploader:
+    build: .
+    container_name: kavita-uploader
+    restart: always
+    volumes:
+      - ../kavita/library:/data
+    environment:
+      AUTH_USERNAME: ${AUTH_USERNAME}
+      AUTH_PASSWORD: ${AUTH_PASSWORD}
+    networks:
+      - uploader-network
+    ports:
+      - "127.0.0.1:3003:3000"
+
+networks:
+  uploader-network:
+    name: ${DOCKER_NETWORK:-kavita-uploader}
+    external: true
